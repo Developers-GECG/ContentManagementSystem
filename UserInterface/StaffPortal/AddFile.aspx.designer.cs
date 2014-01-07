@@ -56,5 +56,14 @@ namespace CMS.UserInterface.StaffPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UploadButton;
+        
+        /// <summary>
+        /// Label_status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_status;
     }
 }
