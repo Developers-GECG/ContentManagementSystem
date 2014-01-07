@@ -10,7 +10,6 @@ namespace CMS
 {
     public partial class Login : System.Web.UI.Page
     {
-        private String connString = "server=localhost;User Id=root;Password=root;database=cms";
         private LoginTasks loginTasks;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,11 +36,13 @@ namespace CMS
                 switch (flag)
                 {
                     case true:
+                        Session["UserType"] = "Staff";
                         Session["UserName"] = loginTasks.returnName();
                         Session["UserID"] = username.Text;
                         Response.Redirect("StaffPortal/Staff-home.aspx");
                         break;
                     case false:
+                        Session["UserType"] = "Student";
                         Session["UserName"] = loginTasks.returnName();
                         Session["UserID"] = username.Text;
                         Response.Redirect("StudentPortal/Student-home.aspx");

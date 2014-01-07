@@ -5,6 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%--<% if (Session["UserName"] == null) { Response.Redirect("../Login.aspx"); } %>--%>
 <head id="Head1" runat="server">
+    <%
+        if (Session["UserID"] == null || Session["UserType"] == null) { Response.Redirect("../Login.aspx"); }
+    %>
     <title>
         <asp:ContentPlaceHolder ID="title" runat="server">
         </asp:ContentPlaceHolder>
@@ -110,10 +113,10 @@
                 <div class="well nav-collapse sidebar-nav">
                     <ul class="nav nav-tabs nav-stacked main-menu">
                         <li class="nav-header hidden-tablet">Main</li>
-                        <li><a class="ajax-link" href="index.aspx"><i class="icon-home"></i><span
-                            class="hidden-tablet">Dashboard</span></a></li>
-                        <li><a class="ajax-link" href="VirtualClass.aspx"><i class="icon-eye-open"></i><span class="hidden-tablet">
-                            Virtual Class</span></a></li>
+                        <li><a class="ajax-link" href="index.aspx"><i class="icon-home"></i><span class="hidden-tablet">
+                            Dashboard</span></a></li>
+                        <li><a class="ajax-link" href="VirtualClass.aspx"><i class="icon-eye-open"></i><span
+                            class="hidden-tablet">Virtual Class</span></a></li>
                         <%--<li><a class="ajax-link" href="form.html"><i class="icon-edit"></i><span class="hidden-tablet">
                             Forms</span></a></li>
                         <li><a class="ajax-link" href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet">
@@ -158,33 +161,28 @@
                 </div>
             </noscript>
             <div id="content" class="span10">
+            <form id="mainForm" runat="server" style="margin: 0 0 0px;">
                 <!-- content starts -->
+                <asp:ContentPlaceHolder ID="checkbox" runat="server">
                 <div>
-                    <asp:ContentPlaceHolder ID="checkbox" runat="server">
-                    </asp:ContentPlaceHolder>
+                    
+                    
                     <!--<ul class="breadcrumb">
                         <li><a href="#">Home</a> <span class="divider">/</span> </li>
                         <li><a href="#">Blank</a> </li>
                     </ul>-->
-                </div>
-                <div class="row-fluid sortable">
-                    <div class="box span12">
-                        <div class="box-header well">
-                            <h2>
-                                <i class="icon-picture"></i>
-                                <asp:ContentPlaceHolder ID="formName" runat="server">
-                                </asp:ContentPlaceHolder>
-                            </h2>
-                        </div>
-                        <div id="home" style="display: block" class="box-content">
-                            <asp:ContentPlaceHolder ID="form" runat="server">
-                            </asp:ContentPlaceHolder>
-                        </div>
-                    </div>
-                    <!--/span-->
-                </div>
+                
+                                <%--<asp:ContentPlaceHolder ID="formName" runat="server">
+                                </asp:ContentPlaceHolder>--%>
+                            
+                        
+                            <%--<asp:ContentPlaceHolder ID="form" runat="server">
+                            </asp:ContentPlaceHolder>--%>
+                        
                 <!--/row-->
                 <!-- content ends -->
+                </asp:ContentPlaceHolder>
+                </form>
             </div>
             <!--/#content.span10-->
         </div>

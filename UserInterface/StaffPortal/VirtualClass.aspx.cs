@@ -37,8 +37,16 @@ namespace CMS.UserInterface.StaffPortal
         public void loadVideoList(object sender, EventArgs e)
         {
             dt = dbc.executeSelectQueryWithDT("Select * from cms.video_master where class_id = '" + func.getClassId(ddlClass.SelectedItem.Text) + "'");
-            rep1.DataSource = dt;
-            rep1.DataBind();
+            int totalVids = dt.Rows.Count;
+            //for (int i = 1; i <= totalVids; i++)
+            //{
+            //    if (i % 4 == 0)
+            //    {
+                    rep1.DataSource = dt;
+                    rep1.DataBind();
+            //    }
+            //}
+                
         }
         public void loadDefaults(object sender, EventArgs e)
         {

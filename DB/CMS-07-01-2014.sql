@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `cms` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `cms`;
--- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
--- Host: localhost    Database: cms
+-- Host: 127.0.0.1    Database: cms
 -- ------------------------------------------------------
--- Server version	5.7.2-m12
+-- Server version	5.5.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -45,6 +45,30 @@ LOCK TABLES `attendance_master` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `class_dept_master`
+--
+
+DROP TABLE IF EXISTS `class_dept_master`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `class_dept_master` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) DEFAULT NULL,
+  `dept_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `class_dept_master`
+--
+
+LOCK TABLES `class_dept_master` WRITE;
+/*!40000 ALTER TABLE `class_dept_master` DISABLE KEYS */;
+/*!40000 ALTER TABLE `class_dept_master` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `dept_master`
 --
 
@@ -57,7 +81,7 @@ CREATE TABLE `dept_master` (
   `intake` varchar(10) DEFAULT NULL,
   `hasDivisions` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,8 +90,35 @@ CREATE TABLE `dept_master` (
 
 LOCK TABLES `dept_master` WRITE;
 /*!40000 ALTER TABLE `dept_master` DISABLE KEYS */;
-INSERT INTO `dept_master` VALUES (1,'EC','120','1'),(2,'Metallurgy','60','0'),(3,'IT','60','0'),(4,'CE','120','1'),(5,'BM','120','1'),(6,'IC','120','1');
+INSERT INTO `dept_master` VALUES (1,'Electronics & Comminication Engineering','120','1'),(2,'Metallurgy Engineering','60','0'),(3,'Information Technology','60','0'),(4,'Computer Engineering','120','1'),(5,'BioMedical Engineering','120','1'),(6,'Instrumentation & Control Engineering','120','1'),(7,'Mining Engineering','120','1');
 /*!40000 ALTER TABLE `dept_master` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `file_master`
+--
+
+DROP TABLE IF EXISTS `file_master`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `file_master` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(300) DEFAULT NULL,
+  `class_id` int(12) DEFAULT NULL,
+  `description` varchar(10000) DEFAULT NULL,
+  `file_content` blob,
+  `file_name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `file_master`
+--
+
+LOCK TABLES `file_master` WRITE;
+/*!40000 ALTER TABLE `file_master` DISABLE KEYS */;
+/*!40000 ALTER TABLE `file_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -511,7 +562,7 @@ CREATE TABLE `staff_master` (
   `emergency_contact_no` varchar(45) DEFAULT NULL,
   `isTeachingStaff` binary(1) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -520,7 +571,7 @@ CREATE TABLE `staff_master` (
 
 LOCK TABLES `staff_master` WRITE;
 /*!40000 ALTER TABLE `staff_master` DISABLE KEYS */;
-INSERT INTO `staff_master` VALUES (1,'Kuntesh jani','1988-01-02','Gandhinagar','1234564564','kk@jani.com','k','2010','Regular','Assistant Professor','Information Technology','M','General','A+','1234567890',NULL),(2,'Nikhil','1993-08-25','Sabarmati','8460048986','n','n','2010','New','Associate Professor','Information Technology','F','SC','A+','9016828817',NULL),(3,'Rajat','1993-11-22','Somewhere Around You','8866225760','admin@technotravel.in','r','2012','Regular','Professor','Information Technology','M','General','B+','1231231230',NULL),(4,'Rishubh','1993-11-22','Somewhere Around You','8866225760','rishubhjain@yahoo.com','r','2012','Regular','Assistant Professor','Computer Engineering','M','General','B+','1231231230',NULL),(5,'Akruti','1993-07-21','Gandhinagar','8866225760','akritiptl@yahoo.com','a','2011','Regular','Associate Professor','Information Technology','F','General','B+','1231231230',NULL),(6,'Vicky','1993-07-21','Bapunagar','8866225760','v@v.v','v','2010','Regular','Associate Professor','Information Technology','M','General','B+','1231231230',NULL),(7,'Namrata Shroff','1980-01-01','baroda','5435435454','namrata@shroff.com','n','2010','New','Professor','Information Technology','M','General','A+','5464665464','1'),(8,'Hardik Patel','1992-05-08','Satadhar','8866240072','h','h','2010','Regular','Professor','Information Technology','M','General','A+','8866240072','0');
+INSERT INTO `staff_master` VALUES (1,'Kuntesh jani','1988-01-02','Gandhinagar','1234564564','kk@jani.com','k','2010','Regular','Assistant Professor','3','M','General','A+','1234567890',NULL),(2,'Nikhil','1993-08-25','Sabarmati','8460048986','n','n','2010','New','Associate Professor','3','F','SC','A+','9016828817',NULL),(3,'Rajat','1993-11-22','Somewhere Around You','8866225760','admin@technotravel.in','r','2012','Regular','Professor','3','M','General','B+','1231231230',NULL),(4,'Rishubh','1993-11-22','Somewhere Around You','8866225760','rishubhjain@yahoo.com','r','2012','Regular','Assistant Professor','4','M','General','B+','1231231230',NULL),(5,'Akruti','1993-07-21','Gandhinagar','8866225760','akritiptl@yahoo.com','a','2011','Regular','Associate Professor','3','F','General','B+','1231231230',NULL),(6,'Vicky','1993-07-21','Bapunagar','8866225760','v@v.v','v','2010','Regular','Associate Professor','3','M','General','B+','1231231230',NULL),(7,'Namrata Shroff','1980-01-01','baroda','5435435454','namrata@shroff.com','n','2010','New','Professor','3','M','General','A+','5464665464','1'),(8,'Hardik Patel','1992-05-08','Satadhar','8866240072','h','h','2010','Regular','Professor','3','M','General','A+','8866240072','0'),(9,'Jaimin Shroff','12/03/2013','Gandhinagar','9909909909','j','j','2012','New','Professor','4','M','General','B+','9909909909','1'),(10,'Sanjay Shah','12/01/2013','Gandhinagar','9909909909','s','s','2007','HOD','Associate Professor','4','M','General','A+','9909909909','1');
 /*!40000 ALTER TABLE `staff_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -561,7 +612,7 @@ CREATE TABLE `student_master` (
   `unique_id` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Enrlollment_No_UNIQUE` (`enroll_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -570,7 +621,7 @@ CREATE TABLE `student_master` (
 
 LOCK TABLES `student_master` WRITE;
 /*!40000 ALTER TABLE `student_master` DISABLE KEYS */;
-INSERT INTO `student_master` VALUES (1,'100130116012','Nikhil Menghani','1990-02-25','fshfghr','1234567897','n','n','Information Technology','2010','7','M','General','0','Regular','6121','GSEB','A+','1234567898',NULL,NULL,'0','0','A','CE-A1','',''),(3,'100130116011','Rishubh','1993-07-18','ahmedabad','1234567897','r','r','Computer Engineering','2010','3','M','General','0','Regular','6121','GSEB','A+','1234567898',NULL,NULL,'0','0','N/A','IT-1','',''),(4,'100130111028','Samkit Jain','1992-07-10','sabarmati','8460048983','s','s','Electronics & Comminication Engineering','2010','7','M','General','0','Regular','6000','GSEB','O+','8460048983',NULL,NULL,'0','0','A','EC-A1','',''),(5,'100130116027','Yogesh Sharma','1992-12-22','No Idea','8866631719','y@y.y','y','Information Technology','2010','7','M','General','0','Regular','6000','GSEB','O+','8866631719',NULL,NULL,'0','0','N/A','IT-2','',''),(6,'100110011001','Niks','25-08-1993','Ahmedabad','8460048986','niks','p','IT',NULL,'7','Male','General','0','Regular','6121','GSEB','A+','9016828817',NULL,NULL,'0','0','A','IT-1','',''),(7,'100130116029','Niks','25-08-1993','Ahmedabad','8460048986','rahul','q','IT',NULL,'7','Male','General','0','','6121','GSEB','A+','9016828817',NULL,NULL,'0','0','A','IT-1','',''),(8,'100130116039','Niks','25-08-1993','Ahmedabad','8460048986','ankit','q','IT','2010','7','Male','General','0','','6121','GSEB','A+','9016828817',NULL,NULL,'0','0','A','IT-1','',''),(9,'100130116010','Rutvij','1992-10-27','Baroda','1234567897','r@r.r','r','Information Technology','2010','7','M','General','0','Regular','','GSEB','A+','1234567898',NULL,NULL,'0','0','N/A','IT-1','','');
+INSERT INTO `student_master` VALUES (1,'100130116012','Nikhil Menghani','1990-02-25','fshfghr','1234567897','n','n','Information Technology','2010','5','M','General','0','Regular','6121','GSEB','A+','1234567898',NULL,NULL,'0','0','A','CE-A1','',''),(3,'100130116011','Rishubh','1993-07-18','ahmedabad','1234567897','r','r','Computer Engineering','2010','3','M','General','0','Regular','6121','GSEB','A+','1234567898',NULL,NULL,'0','0','N/A','IT-1','',''),(4,'100130111028','Samkit Jain','1992-07-10','sabarmati','8460048983','s','s','Electronics & Comminication Engineering','2010','7','M','General','0','Regular','6000','GSEB','O+','8460048983',NULL,NULL,'0','0','A','EC-A1','',''),(5,'100130116027','Yogesh Sharma','1992-12-22','No Idea','8866631719','y@y.y','y','Information Technology','2010','7','M','General','0','Regular','6000','GSEB','O+','8866631719',NULL,NULL,'0','0','N/A','IT-2','',''),(6,'100110011001','Niks','25-08-1993','Ahmedabad','8460048986','niks','p','Information Technology',NULL,'7','Male','General','0','Regular','6121','GSEB','A+','9016828817',NULL,NULL,'0','0','A','IT-1','',''),(7,'100130116029','Niks','25-08-1993','Ahmedabad','8460048986','rahul','q','Information Technology',NULL,'7','Male','General','0','','6121','GSEB','A+','9016828817',NULL,NULL,'0','0','A','IT-1','',''),(8,'100130116039','Niks','25-08-1993','Ahmedabad','8460048986','ankit','q','Information Technology','2010','7','Male','General','0','','6121','GSEB','A+','9016828817',NULL,NULL,'0','0','A','IT-1','',''),(9,'100130116010','Rutvij','1992-10-27','Baroda','1234567897','r@r.r','r','Information Technology','2010','7','M','General','0','Regular','','GSEB','A+','1234567898',NULL,NULL,'0','0','N/A','IT-1','',''),(10,'100130116026','Arpan','12/01/2013','Sabarmati','9722737495','a','a','Information Technology','2010','7','Male','General','0','Regular','12451','GSEB','A+','9909909909',NULL,NULL,'0','0','N/A','IT-2','','');
 /*!40000 ALTER TABLE `student_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -673,8 +724,9 @@ CREATE TABLE `video_master` (
   `key` varchar(45) DEFAULT NULL,
   `description` varchar(10000) DEFAULT NULL,
   `thumbnail_path` varchar(100) DEFAULT NULL,
+  `addedby_staff_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -683,7 +735,7 @@ CREATE TABLE `video_master` (
 
 LOCK TABLES `video_master` WRITE;
 /*!40000 ALTER TABLE `video_master` DISABLE KEYS */;
-INSERT INTO `video_master` VALUES (1,'Nagada Sang Dhol Song - Ram-leela ft. Deepika Padukone, Ranveer Singh',1,'cLIQzxgFeNE','This Navratri &quotcelebrate garba like no other with the most awaited song of the year &quotNagada Sang&quotDhol from Ram-leela featuring the stunning Deepika Padukone and Ranveer Singh. The song is sung in the melodious voice of Shreya Ghoshal & Osman Mir.','thumbnail.jpg'),(2,'Comedy Nights with kapil: \'Shadi Ke Side Effects\'',1,'P2D6h0z0DR0','This one is comedy nights with kapil.','thumbnail.jpg'),(3,'KAPIL playing as Rajkumar and Sumona as Rajkumari in Comedy Circus 2013 Video in HD',1,'bbgoT7jq3x0','KAPIL playing as Rajkumar and Sumona as Rajkumari in Comedy Circus 2013 Video in HD','thumbnail.jpg'),(4,'The Script - Hall of Fame ft. will.i.am ',1,'mk48xRzuNvA','Music video by The Script feat. will.i.am performing Hall of Fame.','thumbnail.jpg'),(5,'Test',1,'yh2SrzCkNQA','ghvyufy8','thumbnail.jpg'),(6,'First Video',0,'yh2SrzCkNQA','','thumbnail.jpg'),(7,'First Video',0,'yh2SrzCkNQA','','thumbnail.jpg');
+INSERT INTO `video_master` VALUES (1,'Lecture - 1 Introduction to Digital Systems Design',2,'CL3ups78jrs','Lecture Series on Digital Systems Design by Prof.D.Roychoudhury, Department of Computer Science and Engineering,IIT Kharagpur.','thumbnail.jpg',2),(2,'Lecture - 2 Introduction to Digital Logic',2,'iHWuv1kFJbY','Lecture Series on Digital Systems Design by Prof.D.Roychoudhury, Department of Computer Science and Engineering,IIT Kharagpur.','thumbnail.jpg',1),(3,'Lecture 3 Combinational Logic Basics',2,'sUutDs7FFeA','Lecture series on Digital Circuits & Systems by Prof. S. Srinivasan,\r\nDepartment of Electrical Engineering, IIT Madras','thumbnail.jpg',2),(4,'Lecture 4 Combinational Logic Basics',2,'sUutDs7FFeA','lorem ipsum','thumbnail.jpg',2),(5,'Lecture 4 Combinational Logic Basics',2,'sUutDs7FFeA','lorem ipsum',NULL,NULL);
 /*!40000 ALTER TABLE `video_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -696,12 +748,12 @@ DROP TABLE IF EXISTS `virtualclass_master`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `virtualclass_master` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `class_name` varchar(45) DEFAULT NULL,
   `title` varchar(45) DEFAULT NULL,
   `description` varchar(45) DEFAULT NULL,
-  `staff_id` int(11) DEFAULT NULL,
+  `createdby_staff_id` int(11) DEFAULT NULL,
   `courtesy` varchar(45) DEFAULT NULL,
   `key` varchar(45) DEFAULT NULL,
+  `associatedto_sem` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -712,13 +764,53 @@ CREATE TABLE `virtualclass_master` (
 
 LOCK TABLES `virtualclass_master` WRITE;
 /*!40000 ALTER TABLE `virtualclass_master` DISABLE KEYS */;
-INSERT INTO `virtualclass_master` VALUES (1,'Java','java the complete reference','this is a higher level computer language',1,'kk jani',NULL),(2,'Mathematics','Maths','It is Mathematics',2,'Nikhil','gge'),(3,NULL,'Advanced .Net Technology','This is 7th sem subject.',2,'Nikhil Menghani','yh2SrzCkNQA');
+INSERT INTO `virtualclass_master` VALUES (1,'Java','Java is a programming language.',2,'YouTube','m3ER2s3Ytis',5),(2,'DLD','It stands for Digital Logic Design',2,'Nikhil','DWyX59I0kEs',3),(3,'.NET','Learn ASP.NET',2,'YouTube','axaxyzecsx',7);
 /*!40000 ALTER TABLE `virtualclass_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'cms'
 --
+/*!50003 DROP FUNCTION IF EXISTS `checkLogin` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `checkLogin`(qry varchar(200)) RETURNS varchar(30) CHARSET utf8
+BEGIN
+return 1;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `getClassId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `getClassId`(clas_name varchar(50)) RETURNS int(11)
+BEGIN
+declare idd int;
+select id into idd from virtualclass_master where title = clas_name;
+RETURN idd;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP FUNCTION IF EXISTS `getDeptID` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -729,12 +821,57 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `getDeptID`(dep_name VARCHAR(45)) RETURNS int(11)
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `getDeptID`(dep_name VARCHAR(45)) RETURNS int(11)
 BEGIN
 declare dep_id int;
 select id into dep_id from dept_master where dept_name = dep_name;
 RETURN dep_id;
-END ;;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `getQuery` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `getQuery`(`type` varchar(20)) RETURNS varchar(200) CHARSET utf8
+BEGIN
+declare qry varchar(200);
+CASE `type`
+	when student then Set qry= "SELECT `name` FROM student_master where email_id=email and pwd=`password` ";
+	when staff then Set qry="SELECT `name` FROM staff_master where email_id=email and pwd=`password` ";
+	END case;
+RETURN qry;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `getStaffId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `getStaffId`(username varchar(50)) RETURNS int(11)
+BEGIN
+declare idd int;
+select id into idd from staff_master where email_id = username;
+RETURN idd;
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -750,12 +887,32 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `getStudentId`(username varchar(50), pwd varchar (50)) RETURNS int(11)
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `getStudentId`(mail_id varchar(50)) RETURNS int(11)
 BEGIN
 declare idd int;
-select id into idd from cms.student_master where email_id = username and pwd = pwd;
+select id into idd from cms.student_master where email_id = mail_id;
 RETURN idd;
-END ;;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `isStaffRegistered` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `isStaffRegistered`(mail_id varchar(45)) RETURNS int(11)
+BEGIN
+select count(*) into @count from cms.staff_master where `email_id` = mail_id;
+RETURN @count;
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -771,11 +928,91 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `isStudentRegistered`(enrol_no varchar(45)) RETURNS int(11)
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `isStudentRegistered`(enrol_no varchar(45)) RETURNS int(11)
 BEGIN
 select count(*) into @count from cms.student_master where enroll_no = enrol_no;
 RETURN @count;
-END ;;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `isStudentRegisteredWithEmailId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `isStudentRegisteredWithEmailId`(mail_id varchar(45)) RETURNS int(11)
+BEGIN
+select count(*) into @count from cms.student_master where email_id = mail_id;
+RETURN @count;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP FUNCTION IF EXISTS `isStudentRegisteredWithEnrollNo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 FUNCTION `isStudentRegisteredWithEnrollNo`(enrol_no varchar(45)) RETURNS int(11)
+BEGIN
+select count(*) into @count from cms.student_master where enroll_no = enrol_no;
+RETURN @count;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `AddClass` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `AddClass`(in title varchar(50), in description varchar (10000), in username varchar(50), in courtesy varchar(50), in kkey varchar(50), in associatedsem varchar(11))
+BEGIN
+set @idd = getStaffId(username);
+INSERT INTO `cms`.`virtualclass_master` (`title`, `description`, `createdby_staff_id`, `courtesy`, `key`, `associatedto_sem`) VALUES (title, description, @idd, courtesy, kkey, associatedsem);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `AddVideo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `AddVideo`(in title varchar(50), in class_name varchar(50), in kkey varchar(50), in description varchar(10000), in added_by varchar(11))
+BEGIN
+set @idd = getClassId(class_name);
+insert into `cms`.`video_master` (`title`, `class_id`, `key`, `description`, `thumbnail_path`,`addedby_staff_id`) values (title, @idd, kkey, description, 'thumbnail.jpg', added_by);
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -791,11 +1028,11 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getDeptId`(in dep_name varchar(50), out dep_id int(45))
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `getDeptId`(in dep_name varchar(50), out dep_id int(45))
 BEGIN
 declare dep_id int;
 select id into dep_id from dept_master where dept_name = dep_name;
-END ;;
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -811,11 +1048,57 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getStaffId`(in username varchar(50), out idd int(45))
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `getStaffId`(in username varchar(50), out idd int(45))
 BEGIN
 declare idd int;
 select id into idd from staff_master where email_id = username;
-END ;;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Login` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `Login`(IN email varchar(25),IN `password` varchar(20),IN p_type varchar(10))
+BEGIN
+declare qry varchar(200);
+set qry = getQuery(p_type);
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `SetStaffDetails` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `SetStaffDetails`(in fullname varchar(60) , in dob varchar(12), in address varchar(200) , in contact_no varchar(15), in emergency_contact_no varchar(15), in email_id varchar(60) , in pwd varchar(45) , in joining_year varchar(4) , in role varchar(30) , in designation varchar(30) , in department varchar(30) , in gender varchar(10) , in category varchar(10) , in blood_group varchar(5) , in isTeachingStaff binary(1))
+BEGIN
+
+Set @count = isStaffRegistered(email_id);
+Set @dept_id = getDeptID(department);
+Set @id = getStaffId(email_id);
+if(@count=0) then insert into cms.staff_master (`name`, dob, address, contact_no, email_id, pwd, joining_year, role, designation, dept_id, gender, category, blood_group, emergency_contact_no, isTeachingStaff ) values (fullname, dob, address, contact_no, email_id, pwd, joining_year, role, designation, @dept_id, gender, category, blood_group, emergency_contact_no, isTeachingStaff );
+else UPDATE `cms`.`staff_master` SET `name` = fullname, `dob` = dob, `address` = address, `contact_no` = contact_no, `email_id` = email_id, `pwd` = pwd, `joining_year` = joining_year, `role` = role, `designation` = designation, `dept_id` = @dept_id, `gender` = gender, `category` = category, `blood_group` = blood_group, `emergency_contact_no` = emergency_contact_no, `isTeachingStaff` = isTeachingStaff where id = @id;
+end if;
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -831,15 +1114,15 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SetStudentDetails`(in fullname varchar(60) , in enroll_no varchar(12), in department varchar(60) , in email_id varchar(60) , in pwd varchar(45) , in address varchar(150) , in contact_no varchar(10) , in emergency_contact_no varchar(10) , in dob varchar(10) , in admission_year varchar(4) , in semester varchar(10) , in division varchar(4) , in batch varchar(5) , in gender varchar(7) , in category varchar(15) , in typ varchar(15) , in merit_rank varchar(6) , in board varchar(5), in passport_no varchar(25) , in unique_id varchar(25) , in blood_group varchar(3) , in isTFW binary(1) , in isDefence binary(1), in isPH binary(1))
+/*!50003 CREATE*/ /*!50020 DEFINER=`root`@`localhost`*/ /*!50003 PROCEDURE `SetStudentDetails`(in fullname varchar(60) , in enroll_no varchar(12), in department varchar(60) , in email_id varchar(60) , in pwd varchar(45) , in address varchar(150) , in contact_no varchar(10) , in emergency_contact_no varchar(10) , in dob varchar(10) , in admission_year varchar(4) , in semester varchar(10) , in division varchar(4) , in batch varchar(5) , in gender varchar(7) , in category varchar(15) , in typ varchar(15) , in merit_rank varchar(6) , in board varchar(5), in passport_no varchar(25) , in unique_id varchar(25) , in blood_group varchar(3) , in isTFW binary(1) , in isDefence binary(1), in isPH binary(1))
 BEGIN
 
-Set @count = isStudentRegistered(enroll_no);
-Set @id = getStudentId(email_id,pwd);
+Set @count = isStudentRegisteredWithEnrollNo(enroll_no);
+Set @id = getStudentId(email_id);
 if(@count=0) then insert into cms.student_master (`name`, enroll_no, department, email_id, pwd, address, contact_no, emergency_contact_no, dob, admission_year, semester, division, batch, gender, category, `type`, merit_rank, board, passport_no, unique_id, blood_group, isTFW, isDefence, isPH ) values (fullname, enroll_no, department, email_id, pwd, address, contact_no, emergency_contact_no, dob, admission_year, semester, division, batch, gender, category, typ, merit_rank, board, passport_no, unique_id, blood_group, isTFW, isDefence, isPH );
 else UPDATE `cms`.`student_master` SET `name` = fullname, `enroll_no` = enroll_no, `department` = department, `address` = address, `contact_no` = contact_no, `emergency_contact_no` = emergency_contact_no, `dob` = dob, `admission_year` = admission_year, `semester` = semester, `division` = division, `batch` = batch, `gender` = gender, `category` = category, `type` = typ, `merit_rank` = merit_rank, `board` = board, `passport_no` = passport_no, `unique_id` = unique_id, `blood_group` = blood_group, `isTFW` = isTFW, `isDefence` = isDefence, `isPH` = isPH where id = @id;
 end if;
-END ;;
+END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -855,4 +1138,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-26 21:37:58
+-- Dump completed on 2014-01-07 11:06:00
