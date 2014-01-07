@@ -5,15 +5,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using CMS.Logic.Database;
+using CMS.Logic;
 
 namespace CMS.UserInterface.StaffPortal
 {
     public partial class AddFile : System.Web.UI.Page
     {
         protected System.Web.UI.WebControls.FileUpload FileUploadControl;
+        DBConnect dbc = new DBConnect();
+        Functions fun = new Functions();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            String qry = "select id,title from cms.virtualclass_master";
+            fun.fillDropdownlist(ddlClass, qry, "id", "title");
         }
         protected void Button_Click(object sender, EventArgs e)
         {
@@ -23,11 +28,17 @@ namespace CMS.UserInterface.StaffPortal
                 {
                     string filename = Path.GetFileName(FileUploadControl.FileName);
                     FileUploadControl.SaveAs(Server.MapPath("~/Temp/") + filename);
-                    Response.Write("Upload status: File uploaded!");
+                    String qry = "INSERT INTO `cms`.`file_master` (`title`, `class_id`, `description`, `file_name`) VALUES ('"+Text_title.Text+"', '"+ddlClass.SelectedIndex.ToString()+"', '"+Text_description.Text+"', '"+filename+"');";
+                    dbc.executeIUDQuery(qry);
+                    Label_status.Text = "Upload status: File uploaded!";
+                    Label_status.Attributes.Remove("display");
+                    Label_status.Attributes.Add("display", "block");
                 }
                 catch (Exception ex)
                 {
-                    Response.Write("Upload status: The file could not be uploaded. The following error occured: " + ex.Message);
+                    Label_status.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                    Label_status.Attributes.Remove("display");
+                    Label_status.Attributes.Add("display", "block");
                 }
             }
         }
