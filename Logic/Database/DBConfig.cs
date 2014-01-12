@@ -19,14 +19,28 @@ namespace CMS.Logic.Database
         public DBConfig()
         {
             doc = XDocument.Load(HttpRuntime.AppDomainAppPath + "\\Config\\DBconfig.xml");
-            
+            var DBName = doc.Descendants("DatabaseName");
+            foreach (var name in DBName)
+            {
+                _dbname = name.Value;
+            }
+            var HostIp = doc.Descendants("IP");
+            foreach (var ip in HostIp)
+            {
+                _host = ip.Value;
+            }
+            var HostPort = doc.Descendants("Port");
+            foreach (var port in HostPort)
+            {
+                _port = Int32.Parse(port.Value);
+            }
         }
 
         public bool setConString(String un, String pw)
         {
             try
             {
-                this._conStr = "server=" + Host + ";User Id=" + un + ";Password=" + pw + ";database=" + DatabaseName;
+                this._conStr = "server=" + Host + ";port=" + Port + ";database=" + DatabaseName + ";User Id=" + un + ";password=" + pw + ";";
                 return true;
             }catch{
                 return false;
@@ -42,40 +56,40 @@ namespace CMS.Logic.Database
         public String DatabaseName
         {
             get { return _dbname; }
-            set 
-            {
-                var DBName = doc.Descendants("DatabaseName");
-                foreach (var name in DBName)
-                {
-                    _dbname = name.Value;
-                }
-            }
+            //set 
+            //{
+            //    var DBName = doc.Descendants("DatabaseName");
+            //    foreach (var name in DBName)
+            //    {
+            //        _dbname = name.Value;
+            //    }
+            //}
         }
 
         public String Host
         {
             get { return _host; }
-            set
-            {
-                var HostIp = doc.Descendants("IP");
-                foreach (var ip in HostIp)
-                {
-                    _host = ip.Value;
-                }
-            }
+            //set
+            //{
+            //    var HostIp = doc.Descendants("IP");
+            //    foreach (var ip in HostIp)
+            //    {
+            //        _host = ip.Value;
+            //    }
+            //}
         }
 
         public int Port
         {
             get { return _port; }
-            set
-            {
-                var HostPort = doc.Descendants("Port");
-                foreach (var port in HostPort)
-                {
-                    _port = Int32.Parse(port.Value);
-                }
-            }
+            //set
+            //{
+            //    var HostPort = doc.Descendants("Port");
+            //    foreach (var port in HostPort)
+            //    {
+            //        _port = Int32.Parse(port.Value);
+            //    }
+            //}
         }
 
         //public String ConnectionString

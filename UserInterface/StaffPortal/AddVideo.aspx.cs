@@ -22,7 +22,7 @@ namespace CMS.UserInterface.StaffPortal
         {
             if (!Page.IsPostBack)
             {
-                func.fillDropdownlist(ddlClass, "Select id,title from cms.virtualclass_master", "id", "title");
+                func.fillDropdownlist(ddlClass, "Select id,title from virtualclass_master", "id", "title");
                 ddlClass.Items.Insert(0, new ListItem("Select or Create Class", "0"));
                 ddlClass.Items.Insert(1, new ListItem("Create New Class", "1"));
             }
@@ -72,7 +72,7 @@ namespace CMS.UserInterface.StaffPortal
         {
             if(ddlClass.SelectedItem.Text == "Create New Class")
             {
-                DataTable dt = dbc.executeSelectQueryWithDT("select id,dept_name from cms.dept_master");
+                DataTable dt = dbc.executeSelectQueryWithDT("select id,dept_name from dept_master");
                 CheckBox_dept.DataTextField = "dept_name";
                 CheckBox_dept.DataValueField = "id";
                 CheckBox_dept.DataSource = dt;

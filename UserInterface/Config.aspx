@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Configure Dtatbase For CMS</title>
+    <title>Configure Database For CMS</title>
     <!-- The styles -->
     <link id="bs-css" href="Common/css/bootstrap-cerulean.css" rel="stylesheet">
     <style type="text/css">

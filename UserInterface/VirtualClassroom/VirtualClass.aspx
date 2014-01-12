@@ -7,6 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="checkbox" runat="server">
+<form id="mainForm" runat="server" style="margin: 0 0 0px;">
     <div>
         <div class="row-fluid sortable">
             <div class="box span12">
@@ -161,7 +162,7 @@
         }
 
         function loadAllDefaults() {
-            var pageUrl = '<%=ResolveUrl("~/UserInterface/StaffPortal/VirtualClass.aspx")%>'
+            var pageUrl = '<%=ResolveUrl("~/UserInterface/StaffPortal/VirtualClass.aspx")%>';
             var className = '{className:"' + $('#<%=ddlClass.ClientID%> option:selected').html() + '"}';
             $.ajax({
                 type: "POST",
@@ -218,4 +219,5 @@
                         opacity: 1.0;
                     }
                 </style>
+                </form>
 </asp:Content>

@@ -161,28 +161,15 @@
                 </div>
             </noscript>
             <div id="content" class="span10">
-            <form id="mainForm" runat="server" style="margin: 0 0 0px;">
+                <asp:ContentPlaceHolder ID="other" runat="server">
+                </asp:ContentPlaceHolder>
                 <!-- content starts -->
                 <asp:ContentPlaceHolder ID="checkbox" runat="server">
-                <div>
-                    
-                    
-                    <!--<ul class="breadcrumb">
-                        <li><a href="#">Home</a> <span class="divider">/</span> </li>
-                        <li><a href="#">Blank</a> </li>
-                    </ul>-->
-                
-                                <%--<asp:ContentPlaceHolder ID="formName" runat="server">
-                                </asp:ContentPlaceHolder>--%>
-                            
-                        
-                            <%--<asp:ContentPlaceHolder ID="form" runat="server">
-                            </asp:ContentPlaceHolder>--%>
-                        
-                <!--/row-->
-                <!-- content ends -->
                 </asp:ContentPlaceHolder>
-                </form>
+            </div>
+            <div id="Div1" class="span10">
+                <asp:ContentPlaceHolder ID="other2" runat="server">
+                </asp:ContentPlaceHolder>
             </div>
             <!--/#content.span10-->
         </div>

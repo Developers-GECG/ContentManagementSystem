@@ -9,9 +9,9 @@ namespace CMS.Logic.Login
 {
     public class LoginTasks
     {
-        private String email;
-        private String password;
-        private String loginType;
+        //private String email;
+        //private String password;
+        //private String loginType;
         private String _displayName;
         DBConnect dbc;
         String qry;
@@ -22,13 +22,18 @@ namespace CMS.Logic.Login
             dbc = new DBConnect();
         }
 
+        public String printConStr()
+        {
+            return dbc.ConnectionString();
+        }
+
         public Boolean checkLogin(String username, String pwd, Boolean flag)
         {
             //dbc.openConnection();
-            qry = "select * from `cms`.`student_master` where `email_id` = '" + username + "' and `pwd`= '" + pwd + "'";
+            qry = "select * from `student_master` where `email_id` = '" + username + "' and `pwd`= '" + pwd + "'";
             if (flag)
             {
-                qry = "select * from `cms`.`staff_master` where `email_id` = '" + username + "' and `pwd`= '" + pwd + "'";
+                qry = "select * from `staff_master` where `email_id` = '" + username + "' and `pwd`= '" + pwd + "'";
             }
             DataTable dt = new DataTable();
             dt = dbc.executeSelectQueryWithDT(qry);
@@ -56,10 +61,10 @@ namespace CMS.Logic.Login
             switch (loginType)
             {
                 case "Staff":
-                    this.qry = "select `name` from staff_master where email_id = '" + email + "' and pwd = '" + this.password + "'";
+                    this.qry = "select `name` from staff_master where email_id = '" + email + "' and pwd = '" + pwd + "'";
                     break;
                 case "Student":
-                    this.qry = "select `name` from student_master where email_id = '" + email + "' and pwd = '" + this.password + "'";
+                    this.qry = "select `name` from student_master where email_id = '" + email + "' and pwd = '" + pwd + "'";
                     break;
             }
             DataTable dt = new DataTable();

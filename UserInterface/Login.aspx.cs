@@ -14,6 +14,7 @@ namespace CMS
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            
         }
         protected void Register_Click(object sender, EventArgs e)
         {
@@ -29,6 +30,7 @@ namespace CMS
         protected void Submit_Click(object sender, EventArgs e)
         {
             loginTasks = new LoginTasks();
+            //Response.Write(loginTasks.printConStr());
             Boolean flag = true;
             if (ddlLogInAs.Text == "Student") flag = !flag;
             if (loginTasks.checkLogin(username.Text, pwd.Text, flag))

@@ -38,13 +38,13 @@ namespace CMS.Logic
         }
         public String getStaffId(String username)
         {
-            string qry = "select id from `cms`.`staff_master` where email_id = '" + username + "'";
+            string qry = "select id from `staff_master` where email_id = '" + username + "'";
             dt = dbc.executeSelectQueryWithDT(qry);
             return dt.Rows[0]["id"].ToString();
         }
         public String getClassId(String class_name)
         {
-            string qry = "SELECT id FROM `cms`.`virtualclass_master` where title = '" + class_name + "'";
+            string qry = "SELECT id FROM `virtualclass_master` where title = '" + class_name + "'";
             dt = dbc.executeSelectQueryWithDT(qry);
             return dt.Rows[0]["id"].ToString();
 
