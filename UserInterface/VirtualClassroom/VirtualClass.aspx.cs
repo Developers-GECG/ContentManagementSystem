@@ -21,23 +21,25 @@ namespace CMS.UserInterface.VirtualClassroom
         public String defaultURL = "http://d26qa89x3cppxu.cloudfront.net/yt.html#id=xoSJ3_dZcm8&height=400px&width=700px";
         public String defaultKey;
         public String defaultDescription;
-        private DataTable dt;
+        private DataTable dt, virtualClass;
         public ArrayList thumb;
         public String classTitle = "Class Title will appear here";
+        
         private void loadDefaults()
         {
-            String qry_getSem, qry_getDetails;
+            String qry_getSem;
             if (userType.Equals("Student"))
             {
-                qry_getSem = "Select semester from cms.student_master where email_id = '" + this.userName + "'";
+                qry_getSem = "Select semester from student_master where email_id = '" + this.userName + "'";
                 dt = dbc.executeSelectQueryWithDT(qry_getSem);
                 userSem = dt.Rows[0][0].ToString();
-                qry_getDetails = "select `key`,description from cms.virtualclass_master where associatedto_sem = '" + userSem + "'";
-                dt = dbc.executeSelectQueryWithDT(qry_getDetails);
+                //qry_getDetails = "select `key`,description from cms.virtualclass_master where associatedto_sem = '" + userSem + "'";
+                //dt = dbc.executeSelectQueryWithDT(qry_getDetails);
                 if (dt != null)
                 {
-                    this.defaultKey = dt.Rows[0][0].ToString();
-                    this.defaultDescription = dt.Rows[0][1].ToString();
+                    String filter = "associatedto_sem = '" + this.userSem + "'";
+                    //this.defaultKey = (DataRow)this.virtualClass.Select(filter);
+                    //this.defaultDescription = virtualClass.Rows[0]["description"].ToString();
                 }
                 else
                 {
@@ -56,23 +58,19 @@ namespace CMS.UserInterface.VirtualClassroom
             if (Session["UserID"] == null || Session["UserType"] == null) { Response.Redirect("../Login.aspx"); }
             this.userType = Session["UserType"].ToString();
             this.userName = Session["UserID"].ToString();
-            //ScriptManager.RegisterStartupScript(UpdatePanel1, this.GetType(), "myFunc", "refreshClassName();", true);
             this.loadDefaults();
             if (!Page.IsPostBack)
             {
                 ddlClass.Items.Insert(0, new ListItem("Select Class", "0"));
-                func.fillDropdownlist(ddlClass, "Select * from cms.virtualclass_master", "id", "title");
+                this.virtualClass = dbc.executeSelectQueryWithDT("Select * from virtualclass_master");
+                func.fillDropdownlistWithDT(ddlClass, virtualClass, "id", "title");
             }
-            //else
-            //{
-            //    this.classTitle = ddlClass.SelectedValue;
-            //}
         }
 
         public void loadVideoList(object sender, EventArgs e)
         {
             this.classTitle = ddlClass.SelectedItem.Text;
-            dt = dbc.executeSelectQueryWithDT("Select * from cms.video_master where class_id = '" + func.getClassId(ddlClass.SelectedItem.Text) + "'");
+            dt = dbc.executeSelectQueryWithDT("Select * from video_master where class_id = '" + func.getClassId(ddlClass.SelectedItem.Text) + "'");
             int totalVids = dt.Rows.Count;
             rep1.DataSource = dt; //commented out for now
             rep1.DataBind();

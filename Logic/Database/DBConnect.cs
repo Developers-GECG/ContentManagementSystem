@@ -22,6 +22,7 @@ namespace CMS.Logic.Database
         public DBConnect()
         {
             this.conStr = ConnectionString();
+            System.Diagnostics.Debug.WriteLine(this.conStr);
             //this.con = new MySqlConnection("server=localhost;User Id=root;Password=root;database=cms");
             this.con = new MySqlConnection(this.conStr);
             //Console.WriteLine(GetConnectionString());
