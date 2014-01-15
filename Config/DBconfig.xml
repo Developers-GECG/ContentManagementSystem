@@ -1,1 +1,1 @@
-﻿<?xml version="1.0" encoding="utf-8"?><DatabaseConfiguration><IP>192.168.1.100</IP><Port>3306</Port><Username>root</Username><Password>root</Password><DatabaseName>cms</DatabaseName></DatabaseConfiguration>
+﻿<?xml version="1.0" encoding="utf-8"?><DatabaseConfiguration><IP>localhost</IP><Port>3306</Port><Username>root</Username><Password>root</Password><DatabaseName>cms</DatabaseName></DatabaseConfiguration>
