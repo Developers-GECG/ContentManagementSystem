@@ -41,9 +41,9 @@ namespace CMS.Logic.VirtualClassroom
             return token;
         }
 
-        public void addInVideoMaster(String title,String key,String description,String staffid)
+        public void addInVideoMaster(String title,String classid,String key,String description,String staffid)
         {
-            String qry = "call AddVideo('" + title + "',2, '" + key + "', '" + description + "','" + staffid + "');";
+            String qry = "call AddVideo('" + title + "','" + classid + "', '" + key + "', '" + description + "','" + staffid + "');";
             dbc.executeIUDQuery(qry);
         }
 
