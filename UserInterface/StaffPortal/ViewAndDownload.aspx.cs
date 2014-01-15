@@ -51,15 +51,6 @@ namespace CMS.UserInterface.StaffPortal
             }
         }
 
-        //protected void view_click(object sender, EventArgs e)
-        //{
-        //    String filename = label0.Text;
-        //    String flpath = Server.MapPath("~/Temp/" + filename);
-        //    Response.ContentType = "application/pdf";//"application/ms-word";
-        //    Response.Buffer = true;
-        //    Response.WriteFile(flpath);
- 
-        //}
 
         protected void dwnld_click(object sender, EventArgs e)
         {

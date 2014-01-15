@@ -62,7 +62,7 @@
                 </h2>
             </div>
             <div id="Div1" class="box-content">
-                <form action="<%=urlName%>?nexturl=http://localhost:1701/UserInterface/VirtualClassroom/Success.aspx"
+                <form action="<%=urlName%>?nexturl=http://localhost:55231/UserInterface/VirtualClassroom/Success.aspx"
                 class="form-horizontal" method="post" enctype="multipart/form-data">
                 <div class="control-group">
                     <label class="control-label">
@@ -81,7 +81,7 @@
                         <input type="hidden" name="token" value="<%=tokenValue%>" /></div>
                 </div>
                 <div class="form-actions">
-                    <input type="submit" value="Upload" class="btn btn-inverse" onclick="button_click" />
+                    <input type="submit" value="Upload" class="btn btn-inverse"  />
                     <button class="btn">
                         Cancel</button>
                 </div>
