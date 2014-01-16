@@ -13,6 +13,15 @@ namespace CMS.UserInterface.StaffPortal {
     public partial class AddVideo {
         
         /// <summary>
+        /// meta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meta;
+        
+        /// <summary>
         /// Form1 control.
         /// </summary>
         /// <remarks>
@@ -119,15 +128,6 @@ namespace CMS.UserInterface.StaffPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button add_Class;
-        
-        /// <summary>
-        /// meta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meta;
         
         /// <summary>
         /// Text_title control.

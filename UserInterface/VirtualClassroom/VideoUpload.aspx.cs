@@ -20,7 +20,6 @@ namespace CMS.UserInterface.StaffPortal
         public VideoUpload vup = new VideoUpload();
         public Functions func = new Functions();
         private DBConnect dbc = new DBConnect();
-        private DataTable dt;
         public String urlName = "";
         public String tokenValue = "";
 
@@ -28,7 +27,7 @@ namespace CMS.UserInterface.StaffPortal
         {
             if (!Page.IsPostBack)
             {
-                func.fillDropdownlist(ddlClass, "Select id,title from virtualclass_master", "id", "title");
+                func.fillDropdownlist(ddlClass, "Select DISTINCT title,id from virtualclass_master", "id", "title");
                 ddlClass.Items.Insert(0, new ListItem("Select or Create Class", "0"));
                 ddlClass.Items.Insert(1, new ListItem("Create New Class", "1"));
             }
@@ -39,7 +38,7 @@ namespace CMS.UserInterface.StaffPortal
 
             String qry = "call AddClass('" + Text_classTitle.Text + "', '" + Text_classDescription.Text + "', '" + Session["UserID"].ToString() + "', '" + Text_courtesy.Text + "', '" + Text_CKey.Text + "', '" + DDL_AssocSemester.Text + "');";
             dbc.executeIUDQuery(qry);
-            Response.Redirect("Staff-home.aspx");
+            Response.Redirect("../StaffPortal/Staff-home.aspx");
         }
 
 
@@ -60,6 +59,9 @@ namespace CMS.UserInterface.StaffPortal
             urlName = formtoken.Url;
             tokenValue = formtoken.Token;
             Response.Write(urlName);
+            //Response.Write("Selected Index : " + ddlClass.SelectedIndex);
+            //Response.Write("Selected value : " + ddlClass.SelectedValue);
+            //Response.Write("Selected Item : " + ddlClass.SelectedItem);
         }
 
         protected void populateCheckBoxes(object sender, EventArgs e)
