@@ -24,11 +24,11 @@ namespace CMS.UserInterface.VirtualClassroom
                 String description = Session["VideoDescription"].ToString();
                 String key=Page.Request.QueryString["id"];
                 String staffid = func.getStaffId(Session["UserID"].ToString());
-                
+                String classid = Session["ClassId"].ToString();
                 int statusCode = Int32.Parse(status);
                 if (statusCode == 200)
                 {
-                    vup.addInVideoMaster(title,key,description,staffid);
+                    vup.addInVideoMaster(title,classid,key,description,staffid);
                     status_text.Text = "Upload Successful with status : " + statusCode;
                     video_key.Text = "Video Key : " + Page.Request.QueryString["id"];
                     info.Text = "Please be patient as youtube processes the video. It will be available after 1 min.";
