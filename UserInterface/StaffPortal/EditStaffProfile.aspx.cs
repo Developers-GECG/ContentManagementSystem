@@ -9,7 +9,7 @@ using CMS.Logic;
 using CMS.Logic.Database;
 
 
-namespace CMS.UserInterface.StaffPortal
+namespace CMS.UserInterface.VirtualClassroom
 {
     public partial class EditStaffPortal : System.Web.UI.Page
     {

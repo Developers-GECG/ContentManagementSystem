@@ -1,29 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserInterface/StaffPortal/Staff.Master"
-    AutoEventWireup="true" CodeBehind="AddVideo.aspx.cs" Inherits="CMS.UserInterface.StaffPortal.AddVideo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserInterface/VirtualClassroom/VirtualClass.Master"
+    AutoEventWireup="true" CodeBehind="VideoUpload.aspx.cs" Inherits="CMS.UserInterface.VirtualClassroom.VideoUpload" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        div table tr td label
-        {
-            float: left;
-            margin-left: 5px;
-        }
-        
-        div table
-        {
-            margin-left: 0%;
-        }
-        
-        div table tr td input
-        {
-            float: left;
-        }
-    </style>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
+    Virtual Class - Content Management System
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="pageTitle" runat="server">
-    Add Video
+
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="form" runat="server">
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="checkbox" runat="server">
         <!-- content starts -->
         <div class="row-fluid sortable"  style="display: block" id="meta" runat="server">
             <div class="box span12" style="width: 70%">
@@ -50,7 +37,7 @@
                                 <label class="control-label" for="focusedInput">
                                     Class Title</label>
                                 <div class="controls">
-                                    <asp:TextBox ID="Text_classTitle" class="input-xlarge focused" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="Text_classTitle" class="input-xlarge focused" onblur="compare_Text"  runat="server"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="control-group">

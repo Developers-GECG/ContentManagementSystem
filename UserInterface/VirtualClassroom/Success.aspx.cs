@@ -12,7 +12,7 @@ namespace CMS.UserInterface.VirtualClassroom
     public partial class Success : System.Web.UI.Page
     {
 
-        VideoUpload vup = new VideoUpload();
+        VideoUploadFunc vupf = new VideoUploadFunc();
         Functions func = new Functions();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,7 +28,7 @@ namespace CMS.UserInterface.VirtualClassroom
                 int statusCode = Int32.Parse(status);
                 if (statusCode == 200)
                 {
-                    vup.addInVideoMaster(title,classid,key,description,staffid);
+                    vupf.addInVideoMaster(title,classid,key,description,staffid);
                     status_text.Text = "Upload Successful with status : " + statusCode;
                     video_key.Text = "Video Key : " + Page.Request.QueryString["id"];
                     info.Text = "Please be patient as youtube processes the video. It will be available after 1 min.";

@@ -5,8 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CMS.Logic.Database;
+using MySql.Data.MySqlClient;
 using CMS.Logic;
 using System.Data;
+using System.Net;
 using System.Collections;
 
 namespace CMS.UserInterface.VirtualClassroom
@@ -21,7 +23,7 @@ namespace CMS.UserInterface.VirtualClassroom
         public String defaultURL = "http://d26qa89x3cppxu.cloudfront.net/yt.html#id=xoSJ3_dZcm8&height=400px&width=700px";
         public String defaultKey;
         public String defaultDescription;
-        private DataTable dt, virtualClass;
+        private DataTable dt, virtualClass,dtfile;
         public ArrayList thumb;
         public String classTitle = "Class Title will appear here";
         
@@ -65,6 +67,54 @@ namespace CMS.UserInterface.VirtualClassroom
                 this.virtualClass = dbc.executeSelectQueryWithDT("Select * from virtualclass_master");
                 func.fillDropdownlistWithDT(ddlClass, virtualClass, "id", "title");
             }
+
+            String qry = "Select title,file_name from cms.file_master where class_id='4'";
+            dbc.openConnection();
+            dtfile = dbc.executeSelectQueryWithDT(qry);
+            dbc.closeConnection();
+            Label[] labelary = new Label[dtfile.Rows.Count];
+            Button[] btn1 = new Button[dtfile.Rows.Count];
+            Table tb = new Table();
+            tb.Width = Unit.Percentage(50);
+            TableRow tr;
+            TableCell tc1,tc2;
+            for (int i = 0; i < dtfile.Rows.Count; i++)
+            {
+                labelary[i] = new Label();
+                btn1[i] = new Button();
+                tr = new TableRow();
+                tc1 = new TableCell();
+                tc2 = new TableCell();
+                labelary[i].Text = "<br>" + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + dtfile.Rows[i]["title"].ToString();
+                labelary[i].Font.Size=13;
+                labelary[i].CssClass = "control-label";
+                btn1[i].Text = "  Download  ";
+                btn1[i].CssClass = "btn btn-inverse";
+                btn1[i].CommandArgument = dtfile.Rows[i]["file_name"].ToString();
+                btn1[i].Click += new EventHandler(dwnld_click);
+                tc1.Controls.Add(labelary[i]);
+                tc2.Controls.Add(btn1[i]);
+                tr.Cells.Add(tc1);
+                tr.Cells.Add(tc2);
+                tb.Rows.Add(tr);
+                displayfile.Controls.Add(tb);
+            }
+        }
+
+        protected void dwnld_click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            String filename = b.CommandArgument.ToString();
+            String flpath = Server.MapPath("~/Temp/" + filename);
+            WebClient wc = new WebClient();
+            HttpResponse response = HttpContext.Current.Response;
+            response.Clear();
+            response.ClearHeaders();
+            response.Buffer = true;
+            response.AddHeader("Content-Disposition", "attachment;filename=\"" + flpath + "\"");
+            byte[] data = wc.DownloadData(flpath);
+            response.BinaryWrite(data);
+            response.End();
         }
 
         public void loadVideoList(object sender, EventArgs e)

@@ -142,7 +142,8 @@
                     <i class="icon-picture"></i>&nbsp;&nbsp;List Of Related Files
                 </h2>
             </div>
-            <div class="row-fluid show-grid">
+            <div id="displayfile" runat="server" class="row-fluid show-grid">
+            
             </div>
         </div>
         <!--/span-->
