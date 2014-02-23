@@ -113,6 +113,8 @@
                         <li><a class="ajax-link" href="EditStaffProfile.aspx"><i class="icon-eye-open"></i><span class="hidden-tablet">&nbsp;Edit Profile</span></a></li>
                         <li><a class="ajax-link" href="VirtualClass.aspx"><i class="icon-font"></i><span
                             class="hidden-tablet">&nbsp;VirtualClass Of Staff portal</span></a></li>
+                          <li><a class="ajax-link" href="http://localhost/HelloWeb/WEB-PAGE/index.jsp"><i class="icon-font"></i><span
+                            class="hidden-tablet">&nbsp;JSP page of JAVA</span></a></li>  
                         <li><a class="ajax-link" href="../VirtualClassroom/VirtualClass.aspx"><i class="icon-font"></i><span
                             class="hidden-tablet">&nbsp;Virtual Class</span></a></li>
                         <%--<li><a class="ajax-link" href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet">

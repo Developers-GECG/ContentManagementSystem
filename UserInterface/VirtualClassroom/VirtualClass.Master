@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VirtualClass.master.cs"
-    Inherits="CMS.UserInterface.VirtualClassroom.VirtualClass" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VirtualClass.Master.cs" Inherits="CMS.VirtualClassM"  %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -82,7 +81,7 @@
                 <div class="btn-group pull-right">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user">
                     </i><span class="hidden-phone">
-                        <%--&nbsp;<%= Session["UserName"].ToString() %>--%></span> <span class="caret"></span>
+                        &nbsp;<%= Session["UserName"].ToString() %></span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Profile</a></li>

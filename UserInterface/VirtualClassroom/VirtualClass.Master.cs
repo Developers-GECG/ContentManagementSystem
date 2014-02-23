@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CMS.UserInterface.VirtualClassroom
+namespace CMS
 {
-    public partial class VirtualClass : System.Web.UI.MasterPage
+    public partial class VirtualClassM : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

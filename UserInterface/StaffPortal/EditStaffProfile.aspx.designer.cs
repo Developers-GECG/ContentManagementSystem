@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CMS.UserInterface.VirtualClassroom {
+namespace CMS {
     
     
     public partial class EditStaffPortal {

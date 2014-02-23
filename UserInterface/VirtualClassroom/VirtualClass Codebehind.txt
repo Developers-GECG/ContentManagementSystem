@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,22 +9,22 @@ using CMS.Logic;
 using System.Data;
 using System.Collections;
 
-namespace CMS
+namespace CMS.UserInterface.VirtualClassroom
 {
     public partial class VirtualClass1 : System.Web.UI.Page
     {
         Functions func = new Functions();
         DBConnect dbc = new DBConnect();
-        String userType;
+        String userType ;
         String userName;
         String userSem;
         public String defaultURL = "http://d26qa89x3cppxu.cloudfront.net/yt.html#id=xoSJ3_dZcm8&height=400px&width=700px";
         public String defaultKey;
-        public String defaultDescription = "";
+        public String defaultDescription;
         private DataTable dt, virtualClass;
         public ArrayList thumb;
         public String classTitle = "Class Title will appear here";
-
+        
         private void loadDefaults()
         {
             String qry_getSem;
@@ -78,7 +78,7 @@ namespace CMS
 
         public String getThLink(String key)
         {
-            return "http://img.youtube.com/vi/" + key + "/mqdefault.jpg";
+            return "http://img.youtube.com/vi/" + key + "/mqdefault.jpg"; 
         }
     }
 }
