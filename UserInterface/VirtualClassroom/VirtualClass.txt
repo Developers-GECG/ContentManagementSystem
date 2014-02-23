@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserInterface/VirtualClassroom/VirtualClass.Master"
-    AutoEventWireup="true" CodeBehind="VirtualClass.aspx.cs" Inherits="CMS.VirtualClass1" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/UserInterface/VirtualClassroom/VirtualClass.Master"
+    AutoEventWireup="true" CodeBehind="VirtualClass.aspx.cs" Inherits="CMS.UserInterface.VirtualClassroom.VirtualClass1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Virtual Class - Content Management System
@@ -69,7 +69,7 @@
                     <i class="icon-picture"></i>&nbsp;&nbsp;<%= ddlClass.SelectedItem.Text%>
                 </h2>
             </div>
-            <div id="Div1" style="display: block" class="box-content" runat="server">
+            <div style="display: block" class="box-content" runat="server">
                 <div class="row-fluid show-grid">
                     <div class="span8">
                         <div id="player">
@@ -85,9 +85,9 @@
         </div>
         <!--/span-->
     </div>
-    <div id="Div2" class="row-fluid sortable" style="display: block">
+    <div id="Div1" class="row-fluid sortable" style="display: block">
         <div class="box span12">
-            <div id="Div3" class="box-header well">
+            <div id="Div2" class="box-header well">
                 <h2>
                     <i class="icon-picture"></i>&nbsp;&nbsp;Browse More Videos From This Class..
                 </h2>
@@ -135,9 +135,9 @@
         </div>
         <!--/span-->
     </div>
-    <div id="Div4" class="row-fluid sortable" style="display: block">
+    <div id="Div3" class="row-fluid sortable" style="display: block">
         <div class="box span12">
-            <div id="Div5" class="box-header well">
+            <div id="Div4" class="box-header well">
                 <h2>
                     <i class="icon-picture"></i>&nbsp;&nbsp;List Of Related Files
                 </h2>

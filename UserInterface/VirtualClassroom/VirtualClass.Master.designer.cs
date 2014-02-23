@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CMS.UserInterface.VirtualClassroom {
+namespace CMS {
     
     
-    public partial class VirtualClass {
+    public partial class VirtualClassM {
         
         /// <summary>
         /// Head1 control.

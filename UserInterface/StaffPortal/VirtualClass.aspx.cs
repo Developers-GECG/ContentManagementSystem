@@ -12,7 +12,7 @@ using CMS.Logic;
 using System.Collections;
 
 
-namespace CMS.UserInterface.StaffPortal
+namespace CMS.UserInterface.VirtualClassroom
 {
     public partial class VirtualClass : System.Web.UI.Page
     {

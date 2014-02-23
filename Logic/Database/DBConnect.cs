@@ -44,26 +44,33 @@ namespace CMS.Logic.Database
         }
         public void executeIUDQuery(String query)
         {
-            qry = query;
-            this.cmd = new MySqlCommand(qry, this.con);
-            this.cmd.CommandType = CommandType.Text;
-            this.cmd.CommandText = qry;
-            this.cmd.Connection = con;
-            this.con.Open();
-            this.cmd.ExecuteNonQuery();
-            this.con.Close();
+            try
+            {
+                qry = query;
+                this.cmd = new MySqlCommand(qry, this.con);
+                this.cmd.CommandType = CommandType.Text;
+                this.cmd.CommandText = qry;
+                this.cmd.Connection = con;
+                this.con.Open();
+                this.cmd.ExecuteNonQuery();
+                this.con.Close();
+            }
+            catch(Exception ex)
+            {
+                System.Console.WriteLine(ex);
+            }
         }
         public Boolean executeQuery(String qry)
         {
             try
             {
-                this.cmd = new MySqlCommand(qry, this.con);
+              //  this.cmd = new MySqlCommand(qry, this.con);
                 this.processQuery();
                 return true;
             }
             catch (Exception ex)
             {
-                System.Console.WriteLine(ex);
+                System.Console.WriteLine();
                 return false;
             }
         }

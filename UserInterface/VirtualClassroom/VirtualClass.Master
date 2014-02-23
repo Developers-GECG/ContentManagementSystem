@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VirtualClass.master.cs"
-    Inherits="CMS.UserInterface.VirtualClassroom.VirtualClass" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VirtualClass.Master.cs" Inherits="CMS.VirtualClassM"  %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -82,7 +81,7 @@
                 <div class="btn-group pull-right">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user">
                     </i><span class="hidden-phone">
-                        <%--&nbsp;<%= Session["UserName"].ToString() %>--%></span> <span class="caret"></span>
+                        &nbsp;<%= Session["UserName"].ToString() %></span> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Profile</a></li>
@@ -114,9 +113,15 @@
                     <ul class="nav nav-tabs nav-stacked main-menu">
                         <li class="nav-header hidden-tablet">Main</li>
                         <li><a class="ajax-link" href="index.aspx"><i class="icon-home"></i><span class="hidden-tablet">
-                            Dashboard</span></a></li>
+                            &nbsp; Dashboard</span></a></li>
                         <li><a class="ajax-link" href="VirtualClass.aspx"><i class="icon-eye-open"></i><span
-                            class="hidden-tablet">Virtual Class</span></a></li>
+                            class="hidden-tablet">&nbsp;&nbsp;Virtual Class</span></a></li>
+                        <li><a class="ajax-link" href="VideoUpload.aspx"><i class="icon-eye-open"></i><span
+                            class="hidden-tablet">&nbsp;&nbsp;Video Upload</span></a></li>
+                        <li><a class="ajax-link" href="AddFile.aspx"><i class="icon-eye-open"></i><span class="hidden-tablet">
+                            &nbsp;&nbsp;Add File</span></a></li>
+                        <li><a class="ajax-link" href="../StaffPortal/Staff-home.aspx"><i class="icon-eye-open">
+                        </i><span class="hidden-tablet">&nbsp;&nbsp;Staff portal</span></a></li>
                         <%--<li><a class="ajax-link" href="form.html"><i class="icon-edit"></i><span class="hidden-tablet">
                             Forms</span></a></li>
                         <li><a class="ajax-link" href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet">

@@ -12,12 +12,12 @@ using MySql.Data.MySqlClient;
 using System.Collections;
 using Google.GData.YouTube;
 
-namespace CMS.UserInterface.StaffPortal
+namespace CMS.UserInterface.VirtualClassroom
 {
-    public partial class AddVideo : System.Web.UI.Page
+    public partial class VideoUpload : System.Web.UI.Page
     {
 
-        public VideoUpload vup = new VideoUpload();
+        public VideoUploadFunc vupf = new VideoUploadFunc();
         public Functions func = new Functions();
         private DBConnect dbc = new DBConnect();
         public String urlName = "";
@@ -42,6 +42,11 @@ namespace CMS.UserInterface.StaffPortal
         }
 
 
+        protected void compare_Text(Object sender, EventArgs e)
+        {
+            Response.Write("This is already exists");
+        }
+
 
         public void add_Video(object sender, EventArgs e)
         {
@@ -55,7 +60,7 @@ namespace CMS.UserInterface.StaffPortal
             Session["VideoTitle"] = Text_title.Text;
             Session["VideoDescription"] = Text_description.Text;
             Session["ClassId"] = ddlClass.SelectedValue;
-            FormUploadToken formtoken = vup.addMetadata(Text_title.Text, Text_description.Text, Text_keyword.Text);
+            FormUploadToken formtoken = vupf.addMetadata(Text_title.Text, Text_description.Text, Text_keyword.Text);
             urlName = formtoken.Url;
             tokenValue = formtoken.Token;
             Response.Write(urlName);

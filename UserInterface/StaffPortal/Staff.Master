@@ -111,13 +111,12 @@
                         <li class="nav-header hidden-tablet">&nbsp;Main</li>
                         <li><a class="ajax-link" href="Staff-home.aspx"><i class="icon-home"></i><span class="hidden-tablet">&nbsp;Dashboard</span></a></li>
                         <li><a class="ajax-link" href="EditStaffProfile.aspx"><i class="icon-eye-open"></i><span class="hidden-tablet">&nbsp;Edit Profile</span></a></li>
-                        <li><a class="ajax-link" href="AddFile.aspx"><i class="icon-edit"></i><span class="hidden-tablet">Add File</span></a></li>
-                        <li><a class="ajax-link" href="../VirtualClassroom/VideoUpload.aspx"><i class="icon-list-alt"></i><span
-                            class="hidden-tablet">&nbsp;Video Upload</span></a></li>
                         <li><a class="ajax-link" href="VirtualClass.aspx"><i class="icon-font"></i><span
-                            class="hidden-tablet">&nbsp;VirtualClass</span></a></li>
-                        <li><a class="ajax-link" href="ViewAndDownload.aspx"><i class="icon-font"></i><span
-                            class="hidden-tablet">&nbsp;View And Download</span></a></li>
+                            class="hidden-tablet">&nbsp;VirtualClass Of Staff portal</span></a></li>
+                          <li><a class="ajax-link" href="http://localhost/HelloWeb/WEB-PAGE/index.jsp"><i class="icon-font"></i><span
+                            class="hidden-tablet">&nbsp;JSP page of JAVA</span></a></li>  
+                        <li><a class="ajax-link" href="../VirtualClassroom/VirtualClass.aspx"><i class="icon-font"></i><span
+                            class="hidden-tablet">&nbsp;Virtual Class</span></a></li>
                         <%--<li><a class="ajax-link" href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet">
                             Gallery</span></a></li>
                         <li class="nav-header hidden-tablet">Sample Section</li>

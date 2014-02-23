@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StaffRegister.aspx.cs"
-    Inherits="CMS.UserInterface.VirtualClassroom.StaffPortal.StaffRegister" %>
+    Inherits="CMS.StaffRegister" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -232,8 +232,7 @@
                                     <div class="form-actions">
                                         <asp:Button ID="Submit" class="btn btn-primary" runat="server" Text="Register"
                                             OnClick="Submit_Click" />
-                                        <button class="btn">
-                                            Cancel</button>
+                                        <asp:Button ID="Cancel" runat="server" class="btn" Text="Cancel" OnClick="Cancel_Click" />
                                     </div>
                                 </fieldset>
                             </form>

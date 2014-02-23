@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserInterface/StaffPortal/Staff.Master" AutoEventWireup="true" CodeBehind="EditStaffProfile.aspx.cs" Inherits="CMS.UserInterface.StaffPortal.EditStaffPortal" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserInterface/StaffPortal/Staff.Master" AutoEventWireup="true" CodeBehind="EditStaffProfile.aspx.cs" Inherits="CMS.EditStaffPortal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="pageTitle" runat="server">
     Edit Profile
@@ -111,7 +111,7 @@
                                 </div>
                             </div>
                             <div class="form-actions">
-                                <asp:Button ID="personal_changes" title="Click here to save changes made to Personal Details." data-rel="tooltip" class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active" runat="server" Text="Save Changes" />
+                                <asp:Button ID="personal_changes" OnClick="add_pd"  title="Click here to save changes made to Personal Details." data-rel="tooltip" class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active" runat="server" Text="Save Changes" />
                             </div>
                         </div>
                         <div id="credentials" style="display: block">
@@ -138,7 +138,7 @@
                                 </div>
                             </div>
                             <div class="form-actions">
-                                <asp:Button ID="credential_changes" title="Click here to save changes made to Credentials." data-rel="tooltip" class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active" runat="server" Text="Save Changes" />
+                                <asp:Button ID="credential_changes" OnClick="add_cv" title="Click here to save changes made to Credentials." data-rel="tooltip" class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active" runat="server" Text="Save Changes" />
                             </div>
                         </div>
                         <div id="academic_details" style="display: block">
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
                             <div class="form-actions">
-                                <asp:Button ID="academic_changes" title="Click here to save changes made to Academic Details." data-rel="tooltip" class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active" runat="server" Text="Save Changes" />
+                                <asp:Button ID="academic_changes" onclick="add_ad" title="Click here to save changes made to Academic Details." data-rel="tooltip" class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active" runat="server" Text="Save Changes" />
                             </div>
                         </div>
                     </div>

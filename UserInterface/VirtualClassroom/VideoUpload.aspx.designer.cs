@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CMS.UserInterface.StaffPortal {
+namespace CMS.UserInterface.VirtualClassroom {
     
     
-    public partial class AddVideo {
+    public partial class VideoUpload {
         
         /// <summary>
         /// meta control.
